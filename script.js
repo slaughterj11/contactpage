@@ -1,18 +1,11 @@
 'use strict';
 
-var app = express();
 
 var express = require('express');
 
 var nodemailer = require("nodemailer");
 
-
-app.use(express.static('css'));
-
-app.use(express.static('js'));
-
-app.use(express.static('view'));
-
+var app = express();
 
 var smtpTransport = nodemailer.createTransport("SMTP", {
     host: 'smtp.gmail.com',
@@ -22,11 +15,18 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
         pass: ''
     },
     tls: {rejectUnauthorized: false},
-
     debug: true
 });
 
+app.use(express.static('view'));
 
+app.use(express.static('css'));
+
+app.use(express.static('js'));
+
+app.get('/', function (req, res) {
+	res.sendfile('main.html');
+});
 
 
 app.get('/send', function (req, res) {
@@ -42,11 +42,6 @@ app.get('/send', function (req, res) {
     }
 });
 });
-
-app.get('/', function (req, res) {
-	res.sendfile('index.html');
-});
-
 
 app.listen(3000, function () {
   console.log("Express Started on Port 3000");
