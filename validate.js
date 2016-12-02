@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var to, subject, text, atPos, dotPos;
 
-  $("#send_email").click(function(){
+  $("#sent").click(function(){
     validateForm();
 	});
 
@@ -13,13 +13,13 @@ $(document).ready(function() {
     dotPos = $("#email").val().indexOf(".");
 
     if (atPos < 1 || dotPos < atPos + 2 || dotPos + 2 >= to.length) {
-      $("#message").empty().html("<p>Not a valid email</p>");
+      $("#message").empty().html("<p>Email entered is not valid</p>");
     } else if (subject == null || subject == '') {
-      $("#message").empty().html("<p>Subject is required</p>");
+      $("#message").empty().html("<p>Section must have content</p>");
     }else if (text == null || text == '') {
-      $("#message").empty().html("<p>Must contain a body</p>");
+      $("#message").empty().html("<p>Section must have content</p>");
     } else {
-      $("#message").text("Sending E-mail...Please wait");
+      $("#message").text("Sending E-mail Thank You For Your Patience");
 
       $.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
         if(data=="sent") {
