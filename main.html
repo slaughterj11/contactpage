@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Contact Page</title>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script src="validate.js"></script>
+
+		<link rel="stylesheet" href="styles.css" type="text/css">
+	</head>
+	<body>
+	  <div id="main-form">
+	    <div id="div-form">
+        <p class="name"><p id="info">Requirements<br>Enter Gmail and Password</p>
+				<input name="email" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Email" id="email" />
+				<input name="subject" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Subject" id="subject" />
+        <textarea name="content" rows="5" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Content" id="content"></textarea>
+				</p>
+  		<div class="send_email">
+					<button id="sent">submit</button>
+					<div class="spot"></div>
+					<div id="postSend"><span id="message"></span></div>
+	  	</div>
+	  </div>
+
+
+
+	  </body>
+</html>
